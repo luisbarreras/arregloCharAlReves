@@ -1,0 +1,38 @@
+
+/**
+ *
+ * @author Luis
+ */
+public class ArregloVolteado {
+    
+    /**
+     * Descripcion Metodo el cual Toma un arreglo char y voltear el arreglo char
+     * @param arreglo type char
+     * @return arreglo type char
+     */
+    private char[] metodoVoltearArreglo(char[] arreglo) {
+       if(arreglo == null || arreglo.length <= 1) { return arreglo; }
+       char aux;
+       int fin = arreglo.length-1;  
+       for(int i = arreglo.length-1; i > 0; i--) {
+           aux = arreglo[i-1];
+           for(int j = i; j < arreglo.length; j++ ) { arreglo[j-1] =arreglo[j]; }
+           arreglo[fin] = aux;
+       } 
+       return  arreglo;
+    }
+    
+
+    private void pruebaUnitaria(String palabra) {
+       ArregloVolteado obj = new ArregloVolteado();
+       char[] charArreglo = palabra.toCharArray();
+       System.out.println("Arreglo original: "+new String(charArreglo));
+       charArreglo =obj.metodoVoltearArreglo(charArreglo);
+       System.out.println("Arreglo Volteado: "+new String (charArreglo));
+    } 
+    
+    public static void main(String args[]) {
+       ArregloVolteado obj = new ArregloVolteado();
+       obj.pruebaUnitaria("SODULAS");    
+    }
+}
